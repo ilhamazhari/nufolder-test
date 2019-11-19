@@ -29,7 +29,7 @@
         <td></td>
         <td>{{$ar->title}}</td>
         <td>{{$ar->content}}</td>
-        <td><button type="button" class="btn btn-success edit-button" data-toggle="modal" data-target="#editArtikelModal" data-route="{{route('admin.article.update', $ar->id)}}" data-title="{{$ar->title}}" data-content="{{$ar->content}}"><i class="fa fa-pencil-square-o"></i> Edit</button><form action="{{route('admin.article.destroy', $ar->id)}}" method="POST">@csrf @method('DELETE')<button type="submit" class="btn btn-danger"><i class="fa fa-times"></i> Delete</button></form></td>
+        <td><form action="{{route('admin.article.destroy', $ar->id)}}" method="POST">@csrf @method('DELETE')<button type="button" class="btn btn-success edit-button" data-toggle="modal" data-target="#editArtikelModal" data-route="{{route('admin.article.update', $ar->id)}}" data-title="{{$ar->title}}" data-content="{{$ar->content}}"><i class="fa fa-pencil-square-o"></i> Edit</button><button type="submit" class="btn btn-danger"><i class="fa fa-times"></i> Delete</button></form></td>
       </tr>
       @endforeach
     </tbody>
