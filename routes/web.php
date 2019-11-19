@@ -11,6 +11,12 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', function () { return view('home'); });
+
+Route::post('/login', 'Auth\LoginController@login')->name('login');
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function(){
+  Route::get('/', 'ArticleController@index')->name('admin.dashboard');
+  Route::resource('article', 'ArticleController', ['as' => 'admin']);
 });
